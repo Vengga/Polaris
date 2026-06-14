@@ -1,0 +1,22 @@
+{
+  "name": "polaris-career-os",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Polaris — a scroll-driven 3D career-navigation galaxy. Stage-1 prototype.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.20",
+    "three": "^0.172.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.172.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7"
+  }
+}

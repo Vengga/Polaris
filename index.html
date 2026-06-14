@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Polaris — a career navigation OS for Asia. Know what's next: the moves you could make, with the odds, timing and pay attached." />
+  <title>Polaris — Know what's next</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- ── Fixed 3D layer ── -->
+  <canvas id="gl"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div id="labels" aria-hidden="true"></div>
+  <div id="scrollcue" class="scrollcue"><span>scroll</span><i></i></div>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <a class="brand" href="#" aria-label="Polaris home">
+      <span class="star">✦</span>
+      <span class="brand-name">Polaris<small>Career OS</small></span>
+    </a>
+    <div class="toggle" id="modeToggle" role="group" aria-label="Audience mode">
+      <button data-mode="candidate" class="on" type="button">For candidates</button>
+      <button data-mode="employer" type="button">For employers</button>
+    </div>
+    <div class="nav-right">
+      <div class="nav-tag">Built for the <b>Talentbank First Cohort</b><br />Career OS · Stage 1 prototype</div>
+      <button id="exploreBtn" class="explore-cta" type="button">✦ Explore the galaxy</button>
+    </div>
+  </nav>
+
+  <!-- ════ STORY: scroll-driven beats over the fixed canvas ════ -->
+  <main id="story">
+
+    <!-- 1 · HERO -->
+    <section class="beat" data-beat="hero">
+      <div class="beat-copy hero-copy">
+        <p class="eyebrow">A career navigation OS for Asia</p>
+        <h1 class="display">Know <em>what's<br />next.</em></h1>
+        <p class="lead">For most of us, no one tells us what comes next. Polaris maps the moves you could realistically make from where you stand — with the odds, the timing, and the pay attached.</p>
+      </div>
+    </section>
+
+    <!-- 2 · THE PROBLEM -->
+    <section class="beat" data-beat="problem">
+      <div class="beat-copy center">
+        <p class="eyebrow">The problem</p>
+        <h2 class="display">No one tells us <em>what's next.</em></h2>
+        <p class="lead">A degree ends. A first job lands. And then the map runs out. You move on rumour, on whoever you happened to sit next to — not on what actually opens the next door.</p>
+      </div>
+    </section>
+
+    <!-- 3 · THE GALAXY REVEALS -->
+    <section class="beat" data-beat="reveal">
+      <div class="beat-copy">
+        <p class="eyebrow">The map</p>
+        <h2 class="display">Then the <em>galaxy</em> appears.</h2>
+        <p class="lead">Every star is a real role. Every trail is a transition that people from your starting point have actually made — weighted by how often, how fast, and for how much.</p>
+      </div>
+    </section>
+
+    <!-- 4 · FLY THE PATH -->
+    <section class="beat" data-beat="path">
+      <div class="beat-copy">
+        <p class="eyebrow">The North Star path</p>
+        <h2 class="display">Fly the <em>most probable route.</em></h2>
+        <p class="lead">Polaris doesn't say "follow your passion." It shows the routes, the odds on each, and the one move that opens the most doors next.</p>
+      </div>
+      <div class="waypoints" id="waypoints" aria-hidden="true"></div>
+    </section>
+
+    <!-- 5 · TWO SIDES -->
+    <section class="beat" data-beat="twosides">
+      <div class="beat-copy">
+        <p class="eyebrow">Two sides, one engine</p>
+        <h2 class="display">The same galaxy, read from <em>both ends.</em></h2>
+      </div>
+      <div class="two">
+        <article class="twocard cand">
+          <span class="badge">Candidate view</span>
+          <h3>See your routes before you commit</h3>
+          <ul>
+            <li>Realistic next moves from where you are, ranked by odds — not job-title keyword soup.</li>
+            <li>The single skill that unlocks the most future paths, surfaced before you need it.</li>
+            <li>Honest pay ranges, so you negotiate from market reality.</li>
+            <li>Set a North Star and watch the most probable route light up.</li>
+          </ul>
+        </article>
+        <article class="twocard emp">
+          <span class="badge">Employer view</span>
+          <h3>Find talent by trajectory, not buzzwords</h3>
+          <ul>
+            <li>Surface candidates whose path resembles the people who succeeded in this role before.</li>
+            <li>A talent radar of early-career people likely to grow into roles you'll need in ~2 years.</li>
+            <li>Match on direction and momentum, catching people a keyword filter would miss.</li>
+            <li>Close the feedback loop: who you reached, interviewed, and where they landed.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6 · THE FOUR LOOPS -->
+    <section class="beat" data-beat="loops">
+      <div class="beat-copy">
+        <p class="eyebrow">The loop</p>
+        <h2 class="display">Four jobs, <em>one co-pilot.</em></h2>
+      </div>
+      <div class="pillars" id="pillars"></div>
+    </section>
+
+    <!-- 7 · CLOSE -->
+    <section class="beat" data-beat="close">
+      <div class="beat-copy center">
+        <p class="eyebrow">Stage 1 · First Cohort</p>
+        <h2 class="display">In five years, Asia's career OS will be running.<br /><em>Build it, or watch it get built.</em></h2>
+        <p class="note">
+          This prototype runs on a <b>seeded transition model</b> with realistic APAC roles and RM salary bands. The engine is the product — point it at <b>Talentbank's 15 years of placement data</b> and these odds become live.
+        </p>
+        <button id="exploreBtn2" class="explore-cta big" type="button">✦ Explore the galaxy</button>
+        <div class="foot-meta">
+          <div><b>Project</b>Polaris — Career OS<br />First Cohort · Stage 1 Intent</div>
+          <div><b>Module</b>Career Path Navigator<br />+ two-sided trajectory engine</div>
+          <div><b>Stack</b>Open · AI-native<br />Web · real-time graph</div>
+          <div><b>Team</b>Your name here<br />APAC · cross-border welcome</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ════ EXPLORE: free-flight interactive galaxy overlay ════ -->
+  <div id="explore" class="explore" aria-hidden="true">
+    <button id="exitExplore" class="exit-explore" type="button" aria-label="Back to the story">← Back to story</button>
+
+    <div class="persona-dock">
+      <p class="dock-label" id="dockLabel">Open a galaxy ↓</p>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <div class="nsbar" id="nsbar" role="status">
+      <span class="ns-ic">✦</span>
+      <p class="ns-t" id="nsText"></p>
+      <button class="clearns" id="clearns" type="button">Clear</button>
+    </div>
+
+    <p class="hint">drag to orbit · scroll to zoom<br />click a star to read its future</p>
+
+    <aside class="panel" id="panel" aria-label="Role detail" aria-hidden="true">
+      <button class="close" id="closePanel" type="button" aria-label="Close panel">✕</button>
+      <p class="p-tier" id="pTier"></p>
+      <h2 id="pTitle"></h2>
+      <p class="p-desc" id="pDesc"></p>
+      <div class="stat-row">
+        <div class="stat"><div class="k" id="pProbK">Reach odds</div><div class="v" id="pProb"></div>
+          <div class="meter"><i id="pMeter"></i></div></div>
+        <div class="stat"><div class="k" id="pTimeK">Typical time</div><div class="v" id="pTime"></div></div>
+      </div>
+      <div class="stat wide"><div class="k" id="pPayK">Pay range · RM / month</div><div class="v" id="pPay"></div></div>
+      <div id="unlockWrap"></div>
+      <div id="movesWrap"></div>
+      <button class="northbtn" id="northBtn" type="button">✦ Set as my North Star</button>
+    </aside>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
